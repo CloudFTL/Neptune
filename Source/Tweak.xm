@@ -78,6 +78,24 @@ int applicationDidFinishLaunching;
 }
 %end
 
+%hook SBDashBoardTeachableMomentsContainerView
+- (void)_addCallToActionLabel{
+
+}
+- (void)_addHomeAffordance{
+
+}
+%end
+
+%hook SBDashBoardQuickActionsViewController
+- (_Bool)hasFlashlight{
+	return NO;
+}
+- (_Bool)hasCamera{
+	return NO;
+}
+%end
+
 %hook SBLockHardwareButton
 - (id)initWithScreenshotGestureRecognizer:(id)arg1 shutdownGestureRecognizer:(id)arg2 proximitySensorManager:(id)arg3 homeHardwareButton:(id)arg4 volumeHardwareButton:(id)arg5 buttonActions:(id)arg6 homeButtonType:(long long)arg7 createGestures:(_Bool)arg8 {
     return %orig(arg1,arg2,arg3,arg4,arg5,arg6,_homeButtonType,arg8);
